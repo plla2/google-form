@@ -1,10 +1,10 @@
-import Card from './components/Card/Card';
+import Formpage from './pages/Formpage';
 
 const App = () => {
   return (
-    <Card isTitle={true}>
-      <div>제목</div>
-    </Card>
+    <div>
+      <Formpage />
+    </div>
   );
 };
 
