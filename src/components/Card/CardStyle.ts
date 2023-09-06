@@ -10,9 +10,9 @@ export const Wrapper = styled.div<{ isSelected: boolean }>`
 export const CardContainer = styled.div<{ isSelected: boolean }>`
   display: flex;
   background-color: ${({ theme }) => theme.color.white};
-  height: 100px;
+  height: 138px;
   width: 768px;
-  border: ${({ theme }) => `1px solid ${theme.color.grey_dark}`};
+  border: ${({ theme }) => `1px solid ${theme.color.grey_light}`};
   border-radius: 8px;
   padding: 24px;
 `;
