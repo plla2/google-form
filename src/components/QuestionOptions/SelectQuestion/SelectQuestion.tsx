@@ -7,7 +7,7 @@ import { questionActions } from '../../../redux/slice/questionSlice';
 import { useLocation } from 'react-router-dom';
 import useInput from '../../../hooks/useInput';
 
-const SelectQuestion = ({ type, optionId, questionId, isLast }: SelectQuestionPropsType) => {
+const SelectQuestion = ({ type, optionId, questionId, optionContent, isLast }: SelectQuestionPropsType) => {
   const option = useInput(isLast ? `옵션 추가` : `옵션 ${optionId}`);
   const dispatch = useAppDispatch();
   const location = useLocation();
@@ -33,7 +33,7 @@ const SelectQuestion = ({ type, optionId, questionId, isLast }: SelectQuestionPr
     <S.Wrapper isLast={isLast}>
       {handleSelectOption()}
       {isPreview ? (
-        <div className="preview-option">{option.value}</div>
+        <div className="preview-option">{optionContent}</div>
       ) : (
         <input type="text" value={option.value} onChange={option.onChange} onClick={handleAddOption} />
       )}

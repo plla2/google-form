@@ -5,7 +5,7 @@ import { useState } from 'react';
 import QuestionWrapper from '../components/Wrapper/QuestionWrapper/QuestionWrapper';
 import { useAppSelector } from '../redux/rtk-hooks/useAppSelector';
 
-const S_Container = styled.div`
+export const S_Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
