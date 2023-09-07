@@ -16,9 +16,9 @@ const { actions: formActions, reducer: formReducer } = createSlice({
   initialState,
   reducers: {
     addForm: (state, action) => {
-      const { formTitle, formDesc } = action.payload;
-      state.title = formTitle;
-      state.desc = formDesc;
+      const { title, desc } = action.payload;
+      state.title = title;
+      state.desc = desc;
     },
   },
 });

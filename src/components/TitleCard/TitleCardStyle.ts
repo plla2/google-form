@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     width: 100%;
   }
-  .input-title {
+  .input__title {
     font-size: 32px;
     margin-top: 8px;
     &::placeholder {
@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
       border-bottom: 1.5px solid ${({ theme }) => theme.color.purple_dark};
     }
   }
-  .input-desc {
+  .input__desc {
     margin-top: 16px;
     &:focus {
       transition: 0.8s ease;

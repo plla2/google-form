@@ -17,8 +17,8 @@ const S_Container = styled.div`
 const Formpage = () => {
   const { questions } = useAppSelector((state) => state.form);
   const [info, setInfo] = useState({
-    formTitle: '제목 없는 설문지',
-    formDesc: '',
+    title: '제목 없는 설문지',
+    desc: '',
   });
   const handleInfo = (name: string, value: string) => {
     setInfo({
