@@ -1,10 +1,15 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Formpage from './pages/Formpage';
+import Previewpage from './pages/Previewpage';
 
 const App = () => {
   return (
-    <div>
-      <Formpage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Formpage />} />
+        <Route path="/preview" element={<Previewpage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
