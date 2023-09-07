@@ -5,10 +5,8 @@ import { QUESTION_OPTION } from '../../../constant/Const';
 import { useAppDispatch } from '../../../redux/rtk-hooks/useAppDispatch';
 import { questionActions } from '../../../redux/slice/questionSlice';
 import { useLocation } from 'react-router-dom';
-import useInput from '../../../hooks/useInput';
 
-const SelectQuestion = ({ type, optionId, questionId, optionContent, isLast }: SelectQuestionPropsType) => {
-  const option = useInput(isLast ? `옵션 추가` : `옵션 ${optionId}`);
+const SelectQuestion = ({ type, optionId, questionId, optionContent, isLast, isAnswer }: SelectQuestionPropsType) => {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const isPreview = location.pathname === '/preview';
@@ -17,12 +15,32 @@ const SelectQuestion = ({ type, optionId, questionId, optionContent, isLast }: S
     isLast && dispatch(questionActions.addOption({ id: questionId, optionId }));
   };
 
+  const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(questionActions.setOptionContent({ id: questionId, optionId, optionContent: e.target.value }));
+  };
+
   const handleSelectOption = () => {
     switch (type) {
       case QUESTION_OPTION.ONE_SELECT:
-        return <Radio className="option" disabled={isPreview ? false : true} />;
+        return (
+          <Radio
+            className="option checked"
+            disabled={isPreview ? false : true}
+            onClick={() => dispatch(questionActions.chooseRadioAnswer({ id: questionId, optionId, isAnswer }))}
+            value={String(optionId)}
+            checked={isPreview ? isAnswer : false}
+          />
+        );
       case QUESTION_OPTION.MULTIPLE_SELECT:
-        return <Checkbox className="option" disabled={isPreview ? false : true} />;
+        return (
+          <Checkbox
+            className="option checked"
+            disabled={isPreview ? false : true}
+            onClick={() => dispatch(questionActions.chooseCheckAnswer({ id: questionId, optionId, isAnswer }))}
+            value={String(optionId)}
+            checked={isPreview ? isAnswer : false}
+          />
+        );
       case QUESTION_OPTION.DROPDOWN:
         return <div className="option-dropdown">{optionId}</div>;
       default:
@@ -35,7 +53,7 @@ const SelectQuestion = ({ type, optionId, questionId, optionContent, isLast }: S
       {isPreview ? (
         <div className="preview-option">{optionContent}</div>
       ) : (
-        <input type="text" value={option.value} onChange={option.onChange} onClick={handleAddOption} />
+        <input type="text" value={optionContent} onChange={handleContentChange} onClick={handleAddOption} />
       )}
     </S.Wrapper>
   );

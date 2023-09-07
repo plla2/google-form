@@ -2,6 +2,7 @@ export interface SelectQuestionPropsType {
   type: number;
   questionId: string;
   optionId: number;
-  optionContent?: string;
+  optionContent: string;
   isLast: boolean;
+  isAnswer?: boolean;
 }

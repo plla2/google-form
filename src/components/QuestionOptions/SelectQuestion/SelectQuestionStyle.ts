@@ -43,4 +43,7 @@ export const Wrapper = styled.div<{ isLast: boolean }>`
       border-bottom: 1.5px solid ${({ theme }) => theme.color.purple_dark};
     }
   }
+  .checked {
+    color: ${({ theme }) => theme.color.purple_dark};
+  }
 `;
