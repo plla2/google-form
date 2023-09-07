@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../../redux/rtk-hooks/useAppSelector';
 import { useAppDispatch } from '../../../redux/rtk-hooks/useAppDispatch';
 import { questionActions } from '../../../redux/slice/questionSlice';
@@ -18,19 +17,14 @@ interface QuestionCardPropsType {
 
 const QuestionWrapper = ({ questionId }: QuestionCardPropsType) => {
   const dispatch = useAppDispatch();
-  const [isEssential, setIsEssential] = useState(false);
   const { questions } = useAppSelector((state) => state.form);
   const pickedQuestion = questions.find((item) => item.id === questionId);
   if (!pickedQuestion) return null;
-  const { type: questionType, options, questionContent } = pickedQuestion;
+  const { type: questionType, options, questionContent, isEssential } = pickedQuestion;
   const lastOptionIndex = options.length + 1;
 
-  useEffect(() => {
-    dispatch(questionActions.setEssential({ id: questionId, isEssential: isEssential }));
-  }, [isEssential]);
-
   const handleSwitch = () => {
-    setIsEssential((isEssential) => !isEssential);
+    dispatch(questionActions.setEssential(questionId));
   };
 
   const handleQuestionContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,13 +38,21 @@ const QuestionWrapper = ({ questionId }: QuestionCardPropsType) => {
   const getOptionList = (type: number) => {
     const optionList = options
       ?.map((option) => (
-        <SelectQuestion key={option.id} questionId={questionId} optionId={option.id} type={type} isLast={false} />
+        <SelectQuestion
+          key={option.id}
+          questionId={questionId}
+          optionContent={option.optionContent}
+          optionId={option.id}
+          type={type}
+          isLast={false}
+        />
       ))
       .concat(
         <SelectQuestion
           key={lastOptionIndex}
           questionId={questionId}
           optionId={lastOptionIndex}
+          optionContent="옵션 추가"
           type={type}
           isLast={true}
         />,

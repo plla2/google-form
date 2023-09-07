@@ -13,15 +13,17 @@ const PreviewWrapper = ({ questionId }: PreviewWrapperPropsType) => {
   const pickedQuestion = questions.find((item) => item.id === questionId);
   if (!pickedQuestion) return null;
   const { type: questionType, options, questionContent, isEssential } = pickedQuestion;
+  const isAnswer = (value: number) => pickedQuestion.checkAnswers.findIndex((item) => item === value) >= 0;
 
   const getOptionList = (type: number) => {
     const optionList = options?.map((option) => (
       <SelectQuestion
+        isAnswer={isAnswer(option.id)}
         key={option.id}
         questionId={questionId}
         optionId={option.id}
         type={type}
-        optionContent={option.option}
+        optionContent={option.optionContent}
         isLast={false}
       />
     ));
