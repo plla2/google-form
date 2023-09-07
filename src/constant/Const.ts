@@ -4,29 +4,37 @@ import radioIcon from '../assets/icons/radio.svg';
 import checkboxIcon from '../assets/icons/checkbox.svg';
 import dropdownIcon from '../assets/icons/dropdown.svg';
 
+export const QUESTION_OPTION = {
+  SHORT_ANSWER: 0,
+  LONG_ANSWER: 1,
+  ONE_SELECT: 2,
+  MULTIPLE_SELECT: 3,
+  DROPDOWN: 4,
+};
+
 export const menus = [
   {
-    id: 1,
+    id: QUESTION_OPTION.SHORT_ANSWER,
     type: '단답형',
     icon: textIcon,
   },
   {
-    id: 2,
+    id: QUESTION_OPTION.LONG_ANSWER,
     type: '장문형',
     icon: textareaIcon,
   },
   {
-    id: 3,
+    id: QUESTION_OPTION.ONE_SELECT,
     type: '객관식 질문',
     icon: radioIcon,
   },
   {
-    id: 4,
+    id: QUESTION_OPTION.MULTIPLE_SELECT,
     type: '체크박스',
     icon: checkboxIcon,
   },
   {
-    id: 5,
+    id: QUESTION_OPTION.DROPDOWN,
     type: '드롭다운',
     icon: dropdownIcon,
   },
