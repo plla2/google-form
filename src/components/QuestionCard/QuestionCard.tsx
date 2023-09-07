@@ -11,10 +11,14 @@ import { Switch } from '@mui/material';
 import { useAppSelector } from '../../redux/rtk-hooks/useAppSelector';
 import { QUESTION_OPTION } from '../../constant/Const';
 
-const QuestionCard = () => {
+interface QuestionCardPropsType {
+  id: number;
+}
+
+const QuestionCard = ({ id }: QuestionCardPropsType) => {
   const questionInput = useInput('');
   const [isEssential, setIsEssential] = useState(false);
-  const { type: questionOption } = useAppSelector((state) => state.questionReducer);
+  const { type: questionOption } = useAppSelector((state) => state.questions)[id];
 
   const handleChangeEssential = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsEssential(e.target.checked);
@@ -48,7 +52,7 @@ const QuestionCard = () => {
             value={questionInput.value}
             onChange={questionInput.onChange}
           />
-          <Dropdown />
+          <Dropdown questionId={id} />
         </div>
         {selectOption()}
         <hr />
