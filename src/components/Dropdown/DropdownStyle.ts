@@ -19,16 +19,16 @@ export const S_Root = styled(Select)`
     }
   }
   & .MuiSelect-select.MuiSelect-select {
-    padding: 12px;
     padding: 0;
     width: 100%;
     height: 100%;
   }
   fieldset {
-    width: 240px;
-    height: 100%;
-    top: 0;
     border: none;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
   }
 `;
 export const S_MenuItem = styled(MenuItem)`

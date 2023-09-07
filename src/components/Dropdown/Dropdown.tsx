@@ -1,25 +1,26 @@
-import { useState } from 'react';
-import { SelectChangeEvent } from '@mui/material/Select';
 import { S_MenuItem, S_Root } from './DropdownStyle';
 import { menus } from '../../constant/Const';
 import { useAppDispatch } from '../../redux/rtk-hooks/useAppDispatch';
 import { questionActions } from '../../redux/slice/questionSlice';
+import { useAppSelector } from '../../redux/rtk-hooks/useAppSelector';
+import { SelectChangeEvent } from '@mui/material';
 
 interface DropdownPropsType {
   questionId: string;
 }
 
 const Dropdown = ({ questionId }: DropdownPropsType) => {
-  const [type, setType] = useState<unknown>(2);
   const dispatch = useAppDispatch();
+  const questions = useAppSelector((state) => state.questions);
+  const question = questions.find((item) => item.id === questionId);
+  const questionType = question?.type;
 
   const handleChange = (e: SelectChangeEvent<unknown>) => {
-    setType(e.target.value as string);
     dispatch(questionActions.changeType({ id: questionId, type: e.target.value }));
   };
 
   return (
-    <S_Root fullWidth value={type} onChange={handleChange}>
+    <S_Root fullWidth value={questionType} onChange={handleChange}>
       {menus.map((menu) => (
         <S_MenuItem key={menu.id} value={menu.id}>
           <span>

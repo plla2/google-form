@@ -8,7 +8,7 @@ interface initialStateType {
 
 const initialState: initialStateType = {
   title: '제목 없는 설문지',
-  desc: '설명설명',
+  desc: '',
 };
 
 const { actions: formActions, reducer: formReducer } = createSlice({
