@@ -3,8 +3,8 @@ import useInput from '../../../hooks/useInput';
 import { Checkbox, Radio } from '@mui/material';
 import * as S from './SelectQuestionStyle';
 
-const SelectQuestion = ({ type }: SelectQuestionPropsType) => {
-  const selectOption = useInput('옵션 1');
+const SelectQuestion = ({ type, questionId }: SelectQuestionPropsType) => {
+  const selectOption = useInput(`${questionId} 옵션`);
 
   const handleSelectOption = () => {
     switch (type) {
@@ -13,7 +13,7 @@ const SelectQuestion = ({ type }: SelectQuestionPropsType) => {
       case 'check':
         return <Checkbox className="option" disabled />;
       case 'dropdown':
-        return <div className="option-dropdown">1</div>;
+        return <div className="option-dropdown">{questionId}</div>;
       default:
         return;
     }
