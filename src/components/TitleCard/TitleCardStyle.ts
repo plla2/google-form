@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin-top: 2rem;
   input {
     margin-left: 3px;
     border: none;
@@ -14,8 +13,8 @@ export const Wrapper = styled.div`
     width: 100%;
   }
   .input-title {
-    font-size: 2rem;
-    margin-top: 0.5rem;
+    font-size: 32px;
+    margin-top: 8px;
     &::placeholder {
       color: ${({ theme }) => theme.color.black};
     }
