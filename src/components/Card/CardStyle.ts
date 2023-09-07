@@ -4,7 +4,6 @@ export const Wrapper = styled.div<{ isSelected: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
-
   box-shadow: ${({ isSelected }) => (isSelected ? '0 3px 5px rgba(0,0,0,0.3)' : null)};
   border-radius: 8px;
   overflow: hidden;
@@ -15,7 +14,7 @@ export const CardContainer = styled.div<{ isSelected: boolean }>`
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.color.white};
-  min-height: 138px;
+  height: auto;
   width: 768px;
   border: ${({ theme }) => `1px solid ${theme.color.grey_light}`};
   border-radius: 8px;

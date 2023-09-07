@@ -1,14 +1,4 @@
-import { Switch } from '@mui/material';
 import { styled } from 'styled-components';
-
-export const S_Switch = styled(Switch)`
-  & .MuiSwitch-colorSecondary.Mui-checked {
-    color: ${({ theme }) => theme.color.purple_dark};
-  }
-  & .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-    background-color: ${({ theme }) => theme.color.purple_dark};
-  }
-`;
 
 export const Container = styled.div`
   width: 100%;
@@ -19,15 +9,22 @@ export const Container = styled.div`
   }
   .question {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     .question-input {
       background-color: ${({ theme }) => theme.color.grey_verylight};
-      width: 400px;
+      width: 420px;
       height: 48px;
       padding: 10px;
       font-size: 16px;
       margin-right: 60px;
+      border-bottom: 1px solid ${({ theme }) => theme.color.grey_medium};
       &:hover {
         background-color: ${({ theme }) => theme.color.grey_light};
+      }
+      &:focus {
+        transition: 0.8s ease;
+        border-bottom: 1.5px solid ${({ theme }) => theme.color.purple_dark};
       }
       &::placeholder {
         color: ${({ theme }) => theme.color.black};
@@ -35,7 +32,7 @@ export const Container = styled.div`
     }
   }
   hr {
-    margin-top: 150px;
+    margin-top: 40px;
     border: 1px solid ${({ theme }) => theme.color.grey_verylight};
   }
   .settings {
