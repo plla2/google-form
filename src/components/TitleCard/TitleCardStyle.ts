@@ -18,8 +18,16 @@ export const Wrapper = styled.div`
     &::placeholder {
       color: ${({ theme }) => theme.color.black};
     }
+    &:focus {
+      transition: 0.8s ease;
+      border-bottom: 1.5px solid ${({ theme }) => theme.color.purple_dark};
+    }
   }
   .input-desc {
     margin-top: 16px;
+    &:focus {
+      transition: 0.8s ease;
+      border-bottom: 1.5px solid ${({ theme }) => theme.color.purple_dark};
+    }
   }
 `;

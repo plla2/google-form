@@ -1,18 +1,22 @@
 import { styled } from 'styled-components';
 import QuestionCard from '../components/QuestionCard/QuestionCard';
 import TitleCard from '../components/TitleCard/TitleCard';
+import Sidebar from '../components/Sidebar/Sidebar';
 
-const Container = styled.div`
+const S_Container = styled.div`
+  display: flex;
   margin-top: 3rem;
   flex-direction: column;
+  position: relative;
 `;
 
 const Formpage = () => {
   return (
-    <Container>
+    <S_Container>
       <TitleCard />
       <QuestionCard />
-    </Container>
+      <Sidebar />
+    </S_Container>
   );
 };
 
