@@ -15,27 +15,27 @@ export const QUESTION_OPTION = {
 export const menus = [
   {
     id: QUESTION_OPTION.SHORT_ANSWER,
-    type: '단답형',
+    option: '단답형',
     icon: textIcon,
   },
   {
     id: QUESTION_OPTION.LONG_ANSWER,
-    type: '장문형',
+    option: '장문형',
     icon: textareaIcon,
   },
   {
     id: QUESTION_OPTION.ONE_SELECT,
-    type: '객관식 질문',
+    option: '객관식 질문',
     icon: radioIcon,
   },
   {
     id: QUESTION_OPTION.MULTIPLE_SELECT,
-    type: '체크박스',
+    option: '체크박스',
     icon: checkboxIcon,
   },
   {
     id: QUESTION_OPTION.DROPDOWN,
-    type: '드롭다운',
+    option: '드롭다운',
     icon: dropdownIcon,
   },
 ];

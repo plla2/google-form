@@ -1,5 +1,6 @@
 import { QUESTION_OPTION } from '../../../constant/Const';
 import { useAppSelector } from '../../../redux/rtk-hooks/useAppSelector';
+import Dropdown from '../../Dropdown/Dropdown';
 import SelectQuestion from '../../QuestionOptions/SelectQuestion/SelectQuestion';
 import TextQuestion from '../../QuestionOptions/TextQuestion/TextQuestion';
 import * as S from './PreviewWrapperStyle';
@@ -23,7 +24,7 @@ const PreviewWrapper = ({ questionId }: PreviewWrapperPropsType) => {
         questionId={questionId}
         optionId={option.id}
         type={type}
-        optionContent={option.optionContent}
+        optionContent={option.option}
         isLast={false}
       />
     ));
@@ -35,8 +36,9 @@ const PreviewWrapper = ({ questionId }: PreviewWrapperPropsType) => {
     switch (questionType) {
       case QUESTION_OPTION.ONE_SELECT:
       case QUESTION_OPTION.MULTIPLE_SELECT:
-      case QUESTION_OPTION.DROPDOWN:
         return getOptionList(questionType);
+      case QUESTION_OPTION.DROPDOWN:
+        return <Dropdown questionId={questionId} menus={options} />;
       case QUESTION_OPTION.SHORT_ANSWER:
         return <TextQuestion type="short" />;
       case QUESTION_OPTION.LONG_ANSWER:

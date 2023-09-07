@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../../redux/rtk-hooks/useAppSelector';
 import { useAppDispatch } from '../../../redux/rtk-hooks/useAppDispatch';
 import { questionActions } from '../../../redux/slice/questionSlice';
-import { QUESTION_OPTION } from '../../../constant/Const';
+import { QUESTION_OPTION, menus } from '../../../constant/Const';
 import SelectQuestion from '../../QuestionOptions/SelectQuestion/SelectQuestion';
 import TextQuestion from '../../QuestionOptions/TextQuestion/TextQuestion';
 import Card from '../../Card/Card';
@@ -41,7 +41,7 @@ const QuestionWrapper = ({ questionId }: QuestionCardPropsType) => {
         <SelectQuestion
           key={option.id}
           questionId={questionId}
-          optionContent={option.optionContent}
+          optionContent={option.option}
           optionId={option.id}
           type={type}
           isLast={false}
@@ -86,7 +86,7 @@ const QuestionWrapper = ({ questionId }: QuestionCardPropsType) => {
             value={questionContent}
             onChange={handleQuestionContentChange}
           />
-          <Dropdown questionId={questionId} />
+          <Dropdown questionId={questionId} menus={menus} />
         </div>
         {selectOption()}
         <hr />
