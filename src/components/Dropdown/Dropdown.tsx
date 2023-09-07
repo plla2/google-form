@@ -5,13 +5,17 @@ import { menus } from '../../constant/Const';
 import { useAppDispatch } from '../../redux/rtk-hooks/useAppDispatch';
 import { questionActions } from '../../redux/slice/questionSlice';
 
-const Dropdown = () => {
+interface DropdownPropsType {
+  questionId: number;
+}
+
+const Dropdown = ({ questionId }: DropdownPropsType) => {
   const [type, setType] = useState<unknown>(2);
   const dispatch = useAppDispatch();
 
   const handleChange = (e: SelectChangeEvent<unknown>) => {
     setType(e.target.value as string);
-    dispatch(questionActions.changeType(e.target.value));
+    dispatch(questionActions.changeType({ id: questionId, type: e.target.value }));
   };
 
   return (
