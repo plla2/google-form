@@ -1,10 +1,16 @@
 import { styled } from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ isLast: boolean }>`
   display: flex;
-
   height: 42px;
   margin-top: 10px;
+
+  .preview-option {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .option {
     svg {
