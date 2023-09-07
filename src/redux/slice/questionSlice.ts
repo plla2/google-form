@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { QUESTION_OPTION } from '../../constant/Const';
+import shortid from 'shortid';
 
 interface Option {
   id: number;
-  optionContent: string;
+  option: string;
 }
 
 export interface intialStateType {
-  id: number;
+  id: string;
   type: number;
   questionContent: string;
   isEssential: boolean;
@@ -16,42 +17,39 @@ export interface intialStateType {
 
 const initialState: intialStateType[] = [
   {
-    id: 0,
+    id: shortid(),
     type: QUESTION_OPTION.ONE_SELECT,
-    questionContent: '',
+    questionContent: '제목없는 질문',
     isEssential: false,
     options: [
       {
         id: 1,
-        optionContent: '',
-      },
-      {
-        id: 2,
-        optionContent: '',
+        option: '옵션 1',
       },
     ],
   },
 ];
 
-const addNewQuestion = (newId: number) => ({
+// const addNewQuestion = (newQuestionId: string) => ({
+//   id: newQuestionId,
+//   type: QUESTION_OPTION.DROPDOWN,
+//   questionContent: '',
+//   isEssential: false,
+//   options: [
+//     {
+//       id: 1,
+//       optionContent: '',
+//     },
+//     {
+//       id: 2,
+//       optionContent: '',
+//     },
+//   ],
+// });
+
+const addNewOption = (newId: number) => ({
   id: newId,
-  type: QUESTION_OPTION.DROPDOWN,
-  questionContent: '',
-  isEssential: false,
-  options: [
-    {
-      id: 1,
-      optionContent: '',
-    },
-    {
-      id: 2,
-      optionContent: '',
-    },
-    {
-      id: 3,
-      optionContent: '',
-    },
-  ],
+  option: `옵션 ${newId}`,
 });
 
 const { actions: questionActions, reducer: questionReducer } = createSlice({
@@ -60,18 +58,37 @@ const { actions: questionActions, reducer: questionReducer } = createSlice({
   reducers: {
     changeType: (state, action) => {
       const { id, type } = action.payload;
-      state[id].type = type;
+      const question = state.find((item) => item.id === id);
+      question && (question.type = type);
     },
     setEssential: (state, action) => {
-      const { id, isEssential } = action.payload;
-      state[id].isEssential = isEssential;
+      const { id } = action.payload;
+      const question = state.find((item) => item.id === id);
+      question && (question.isEssential = !question.isEssential);
     },
     setQuestionContent: (state, action) => {
       const { id, questionContent } = action.payload;
-      state[id].questionContent = questionContent;
+      const question = state.find((item) => item.id === id);
+      question && (question.questionContent = questionContent);
     },
-    addQuestion: (state) => {
-      state.push(addNewQuestion(state.length));
+    addQuestion: (state, action) => {
+      const newQuestion = action.payload;
+      state.push(newQuestion);
+    },
+    deleteQuestion: (state, action) => {
+      const id = action.payload;
+      state.filter((item) => item.id !== id);
+    },
+    addOption: (state, action) => {
+      const { id, optionId } = action.payload;
+      const questionId = state.findIndex((item) => item.id === String(id));
+      state[questionId].options.push(addNewOption(optionId));
+    },
+    setOptionContent: (state, action) => {
+      const { id, optionId, optionContent } = action.payload;
+      const questionId = state.findIndex((item) => item.id === String(id));
+      const optionIdx = state[questionId].options.findIndex((item) => item.id === Number(optionId));
+      state[questionId].options[optionIdx].option = optionContent;
     },
   },
 });

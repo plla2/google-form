@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../redux/rtk-hooks/useAppDispatch';
 import { formActions } from '../../redux/slice/formSlice';
 import { Link } from 'react-router-dom';
 import { questionActions } from '../../redux/slice/questionSlice';
+import shortid from 'shortid';
 
 interface SidebarPropsType {
   info: InfoPropsType;
@@ -19,7 +20,8 @@ const Sidebar = ({ info }: SidebarPropsType) => {
   };
 
   const handleAddNewQuestion = () => {
-    dispatch(questionActions.addQuestion());
+    const newQuestionId = shortid();
+    dispatch(questionActions.addQuestion(newQuestionId));
   };
 
   return (

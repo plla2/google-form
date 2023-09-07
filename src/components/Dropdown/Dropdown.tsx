@@ -6,7 +6,7 @@ import { useAppDispatch } from '../../redux/rtk-hooks/useAppDispatch';
 import { questionActions } from '../../redux/slice/questionSlice';
 
 interface DropdownPropsType {
-  questionId: number;
+  questionId: string;
 }
 
 const Dropdown = ({ questionId }: DropdownPropsType) => {

@@ -1,4 +1,6 @@
 export interface SelectQuestionPropsType {
-  type: 'radio' | 'check' | 'dropdown';
-  questionId: number;
+  type: number;
+  questionId: string;
+  optionId: number;
+  isLast: boolean;
 }
