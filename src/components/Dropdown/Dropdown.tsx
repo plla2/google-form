@@ -1,6 +1,6 @@
 import { S_MenuItem, S_Root } from './DropdownStyle';
 import { useAppDispatch } from '../../redux/rtk-hooks/useAppDispatch';
-import { questionActions } from '../../redux/slice/questionSlice';
+import { questionActions } from '../../redux/slice';
 import { useAppSelector } from '../../redux/rtk-hooks/useAppSelector';
 import { SelectChangeEvent } from '@mui/material';
 import { useLocation } from 'react-router-dom';
@@ -19,7 +19,7 @@ interface DropdownPropsType {
 
 const Dropdown = ({ questionId, menus, isAnswer }: DropdownPropsType) => {
   const dispatch = useAppDispatch();
-  const questions = useAppSelector((state) => state.questions);
+  const { questions } = useAppSelector((state) => state.form);
   const question = questions.find((item) => item.id === questionId);
   if (!question) return null;
   const { type: questionType, checkAnswers } = question;

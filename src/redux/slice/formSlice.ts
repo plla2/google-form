@@ -1,5 +1,5 @@
 import { combineReducers, createSlice } from '@reduxjs/toolkit';
-import questionReducer from './questionSlice';
+import { questionReducer } from '.';
 
 interface initialStateType {
   title: string;
@@ -22,6 +22,7 @@ const { actions: formActions, reducer: formReducer } = createSlice({
     },
   },
 });
+
 export { formActions };
 
 export default combineReducers({
