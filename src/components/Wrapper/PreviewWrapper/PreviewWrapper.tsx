@@ -47,7 +47,7 @@ const PreviewWrapper = ({ questionId }: PreviewWrapperPropsType) => {
   };
 
   return (
-    <S.Container isEssential={true}>
+    <S.Container $isEssential={true}>
       <span className="questionTitle">{questionContent}</span>
       {isEssential && <span className="questionTitle__essential">*</span>}
       {selectOption()}

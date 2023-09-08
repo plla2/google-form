@@ -59,7 +59,7 @@ const SelectQuestion = ({ type, optionId, questionId, optionContent, isLast, isA
     }
   };
   return (
-    <S.Wrapper isLast={isLast}>
+    <S.Wrapper $isLast={isLast}>
       {handleSelectOption()}
       {isPreview || isResult ? (
         <div className="preview-option">{optionContent}</div>

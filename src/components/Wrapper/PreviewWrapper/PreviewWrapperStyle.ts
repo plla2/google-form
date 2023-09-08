@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const Container = styled.div<{ isEssential: boolean }>`
+export const Container = styled.div<{ $isEssential: boolean }>`
   background-color: ${({ theme }) => theme.color.white};
   width: 768px;
   min-height: 120px;

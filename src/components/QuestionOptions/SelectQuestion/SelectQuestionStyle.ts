@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const Wrapper = styled.div<{ isLast: boolean }>`
+export const Wrapper = styled.div<{ $isLast: boolean }>`
   display: flex;
   height: 42px;
   margin-top: 10px;
