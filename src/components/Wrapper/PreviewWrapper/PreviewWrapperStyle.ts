@@ -11,6 +11,7 @@ export const Container = styled.div<{ isEssential: boolean }>`
 
   .questionTitle {
     font-size: 20px;
+    margin-right: 20px;
 
     &__essential {
       font-size: 20px;

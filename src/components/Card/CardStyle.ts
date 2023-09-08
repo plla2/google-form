@@ -1,16 +1,18 @@
 import { styled } from 'styled-components';
 
-export const Wrapper = styled.div<{ isSelected: boolean }>`
+export const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  box-shadow: ${({ isSelected }) => (isSelected ? '0 3px 5px rgba(0,0,0,0.3)' : null)};
   border-radius: 8px;
   overflow: hidden;
   margin-top: 20px;
+  &.selected {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  }
 `;
 
-export const CardContainer = styled.div<{ isSelected: boolean }>`
+export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.color.white};
@@ -33,9 +35,8 @@ export const TitleWrapper = styled.div`
   z-index: 10;
 `;
 
-export const SelectedWrapper = styled.div<{ isSelected: boolean }>`
+export const SelectedWrapper = styled.div`
   position: absolute;
-  background-color: ${({ theme, isSelected }) => (isSelected ? theme.color.blue_dark : '')};
   min-height: 100%;
   width: 7px;
   top: 0;

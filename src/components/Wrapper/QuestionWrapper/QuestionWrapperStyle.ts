@@ -57,9 +57,9 @@ export const Container = styled.div`
     }
   }
   .dragHandler {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    left: 48%;
+    width: 25px;
     img {
       width: 25px;
       margin-bottom: 10px;
