@@ -10,16 +10,14 @@ import { GlobalStyles } from './styles/GlobalStyles.ts';
 import PageLayout from './components/PageLayout/PageLayout.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={ThemeColors}>
-        <Provider store={store}>
-          <GlobalStyles />
-          <PageLayout>
-            <App />
-          </PageLayout>
-        </Provider>
-      </ThemeProvider>
-    </StyledEngineProvider>
-  </React.StrictMode>,
+  <StyledEngineProvider injectFirst>
+    <ThemeProvider theme={ThemeColors}>
+      <Provider store={store}>
+        <GlobalStyles />
+        <PageLayout>
+          <App />
+        </PageLayout>
+      </Provider>
+    </ThemeProvider>
+  </StyledEngineProvider>,
 );
