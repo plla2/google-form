@@ -40,7 +40,7 @@ const TitleCard = ({ info, handleChange }: TitleCardPropsType) => {
             <div className="preview__title">{info.title}</div>
             <div className="preview__desc">{info.desc}</div>
             <hr />
-            <div className="preview__essential">* 표시는 필수 질문임</div>
+            <div className="preview__essential">* 표시는 필수 질문</div>
           </div>
         </S.PreviewWrapper>
       )}

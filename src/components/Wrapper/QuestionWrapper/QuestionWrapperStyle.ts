@@ -18,6 +18,7 @@ export const Container = styled.div`
       padding: 10px;
       font-size: 16px;
       margin-right: 60px;
+      border-radius: 4px;
       border-bottom: 1px solid ${({ theme }) => theme.color.grey_medium};
       &:hover {
         background-color: ${({ theme }) => theme.color.grey_light};
@@ -25,9 +26,6 @@ export const Container = styled.div`
       &:focus {
         transition: 0.8s ease;
         border-bottom: 1.5px solid ${({ theme }) => theme.color.purple_dark};
-      }
-      &::placeholder {
-        color: ${({ theme }) => theme.color.black};
       }
     }
   }

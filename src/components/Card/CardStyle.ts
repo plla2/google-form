@@ -27,7 +27,7 @@ export const TitleWrapper = styled.div`
   position: absolute;
   background-color: ${({ theme }) => theme.color.purple_dark};
   min-width: 100%;
-  height: 10px;
+  height: 12px;
   top: 0;
   left: 0;
   border-top-right-radius: 8px;

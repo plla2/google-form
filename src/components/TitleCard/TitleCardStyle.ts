@@ -15,9 +15,6 @@ export const FormWrapper = styled.div`
   .input__title {
     font-size: 32px;
     margin-top: 8px;
-    &::placeholder {
-      color: ${({ theme }) => theme.color.black};
-    }
     &:focus {
       transition: 0.8s ease;
       border-bottom: 1.5px solid ${({ theme }) => theme.color.purple_dark};
@@ -52,22 +49,22 @@ export const PreviewWrapper = styled.div`
       background-color: ${({ theme }) => theme.color.purple_dark};
     }
     &__title {
-      margin-left: 20px;
-      margin-top: 16px;
+      margin-left: 30px;
+      margin-top: 25px;
       font-size: 32px;
     }
     &__desc {
-      margin-left: 20px;
-      margin-top: 16px;
-      font-size: 14px;
+      margin-left: 30px;
+      margin-top: 18px;
+      font-size: 15px;
     }
     hr {
       width: 100%;
-      margin-top: 12px;
+      margin-top: 18px;
     }
     &__essential {
-      margin: 10px 20px;
-      font-size: 15px;
+      margin: 12px 28px;
+      font-size: 14px;
       color: red;
     }
   }
