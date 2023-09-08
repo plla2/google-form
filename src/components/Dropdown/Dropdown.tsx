@@ -9,7 +9,7 @@ import { DropdownPropsType } from './DropdownType';
 const Dropdown = ({ questionId, menus, isAnswer }: DropdownPropsType) => {
   const dispatch = useAppDispatch();
   const { questions } = useAppSelector((state) => state.form);
-  const question = questions.find((item) => item.id === questionId);
+  const question = questions.find((question) => question.id === questionId);
   if (!question) return null;
   const { type: questionType, checkAnswers } = question;
   const chooseAnswer = checkAnswers.length > 0 ? checkAnswers[0] : '';

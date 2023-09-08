@@ -11,7 +11,7 @@ const TextQuestion = ({ type, questionId }: TextQuestionPropsType) => {
   const isPreview = location.pathname === '/preview';
   const isResult = location.pathname === '/result';
   const { questions } = useAppSelector((state) => state.form);
-  const question = questions?.find((item) => item.id === questionId);
+  const question = questions?.find((question) => question.id === questionId);
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(questionActions.writeTextAnswer({ id: questionId, textContent: e.target.value }));

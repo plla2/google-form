@@ -10,8 +10,8 @@ const Resultpage = () => {
     <S_Container>
       <div className="page-title">설문 응답 결과</div>
       <TitleCard info={form.form} />
-      {questions.map((item) => (
-        <PreviewWrapper key={item.id} questionId={item.id} />
+      {questions.map((question) => (
+        <PreviewWrapper key={question.id} questionId={question.id} />
       ))}
     </S_Container>
   );

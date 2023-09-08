@@ -9,10 +9,10 @@ import { PreviewWrapperPropsType } from './PreviewWrapperType';
 const PreviewWrapper = ({ questionId }: PreviewWrapperPropsType) => {
   const { questions } = useAppSelector((state) => state.form);
 
-  const pickedQuestion = questions.find((item) => item.id === questionId);
+  const pickedQuestion = questions.find((question) => question.id === questionId);
   if (!pickedQuestion) return null;
   const { type: questionType, options, questionContent, isEssential } = pickedQuestion;
-  const isAnswer = (value: number) => pickedQuestion.checkAnswers.findIndex((item) => item === value) >= 0;
+  const isAnswer = (value: number) => pickedQuestion.checkAnswers.findIndex((answer) => answer === value) >= 0;
 
   const getOptionList = (type: number) => {
     const optionList = options?.map((option) => (

@@ -18,7 +18,7 @@ const QuestionWrapper = ({ questionId, provided }: QuestionCardPropsType) => {
   const dispatch = useAppDispatch();
   const { questions } = useAppSelector((state) => state.form);
 
-  const pickedQuestion = questions.find((item) => item.id === questionId);
+  const pickedQuestion = questions.find((question) => question.id === questionId);
   if (!pickedQuestion) return null;
   const { type: questionType, options, questionContent, isEssential } = pickedQuestion;
   const lastOptionIndex = options.length + 1;
