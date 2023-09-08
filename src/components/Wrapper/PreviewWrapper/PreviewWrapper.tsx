@@ -40,9 +40,9 @@ const PreviewWrapper = ({ questionId }: PreviewWrapperPropsType) => {
       case QUESTION_OPTION.DROPDOWN:
         return <Dropdown questionId={questionId} menus={options} />;
       case QUESTION_OPTION.SHORT_ANSWER:
-        return <TextQuestion type="short" />;
+        return <TextQuestion type="short" questionId={questionId} />;
       case QUESTION_OPTION.LONG_ANSWER:
-        return <TextQuestion type="long" />;
+        return <TextQuestion type="long" questionId={questionId} />;
       default:
         return;
     }

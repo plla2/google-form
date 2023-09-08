@@ -114,6 +114,11 @@ const { actions: questionActions, reducer: questionReducer } = createSlice({
         else question.checkAnswers.splice(answerIdx, 1);
       }
     },
+    writeTextAnswer: (state, action) => {
+      const { id, textContent } = action.payload;
+      const questionId = state.findIndex((item) => item.id === String(id));
+      state[questionId].textAnswers = textContent;
+    },
   },
 });
 
