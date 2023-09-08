@@ -110,6 +110,11 @@ const { actions: questionActions, reducer: questionReducer } = createSlice({
         item.textAnswers = '';
       });
     },
+    replaceQuestion: (state, action) => {
+      const { initialIdx, afterIdx } = action.payload;
+      const [removed] = state.splice(initialIdx, 1);
+      state.splice(afterIdx, 0, removed);
+    },
   },
 });
 

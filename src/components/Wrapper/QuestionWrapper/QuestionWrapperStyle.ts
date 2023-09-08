@@ -56,4 +56,14 @@ export const Container = styled.div`
       border-left: 1px solid ${({ theme }) => theme.color.grey_verylight};
     }
   }
+  .dragHandler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 25px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+  }
 `;

@@ -9,14 +9,17 @@ import * as S from './QuestionWrapperStyle';
 import Dropdown from '../../Dropdown/Dropdown';
 import copyIcon from '../../../assets/icons/copy.svg';
 import deleteIcon from '../../../assets/icons/trash.svg';
+import dragIcon from '../../../assets/icons/drag.svg';
 import { Switch } from '@mui/material';
 import shortid from 'shortid';
+import { DraggableProvided } from 'react-beautiful-dnd';
 
 interface QuestionCardPropsType {
   questionId: string;
+  provided: DraggableProvided;
 }
 
-const QuestionWrapper = ({ questionId }: QuestionCardPropsType) => {
+const QuestionWrapper = ({ questionId, provided }: QuestionCardPropsType) => {
   const dispatch = useAppDispatch();
   const { questions } = useAppSelector((state) => state.form);
   const pickedQuestion = questions.find((item) => item.id === questionId);
@@ -91,6 +94,9 @@ const QuestionWrapper = ({ questionId }: QuestionCardPropsType) => {
   return (
     <Card isTitle={false}>
       <S.Container>
+        <div className="dragHandler" {...provided.dragHandleProps}>
+          <img src={dragIcon} alt="드래그 아이콘" />
+        </div>
         <div className="question">
           <input
             type="text"
