@@ -92,7 +92,7 @@ const QuestionWrapper = ({ questionId, provided }: QuestionCardPropsType) => {
   };
 
   return (
-    <Card isTitle={false}>
+    <Card isTitle={false} id={String(questionId)}>
       <S.Container>
         <div className="dragHandler" {...provided.dragHandleProps}>
           <img src={dragIcon} alt="드래그 아이콘" />
