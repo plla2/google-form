@@ -104,6 +104,12 @@ const { actions: questionActions, reducer: questionReducer } = createSlice({
       const questionId = state.findIndex((item) => item.id === String(id));
       state[questionId].textAnswers = textContent;
     },
+    resetAnswers: (state) => {
+      state.map((item) => {
+        item.checkAnswers = [];
+        item.textAnswers = '';
+      });
+    },
   },
 });
 
