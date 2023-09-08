@@ -25,39 +25,43 @@ const SelectQuestion = ({ type, optionId, questionId, optionContent, isLast, isA
     else return false;
   };
 
-  const isDisabled = () => {
-    if (isResult) return true;
-    else return false;
-  };
+  const isDisabled = (): boolean => isResult;
+
+  const renderRadio = () => (
+    <Radio
+      className="option checked"
+      disabled={isDisabled()}
+      onClick={() => dispatch(questionActions.chooseRadioAnswer({ id: questionId, optionId, isAnswer }))}
+      value={String(optionId)}
+      checked={isChecked()}
+    />
+  );
+
+  const renderCheckBox = () => (
+    <Checkbox
+      className="option checked"
+      disabled={isDisabled()}
+      onClick={() => dispatch(questionActions.chooseCheckAnswer({ id: questionId, optionId, isAnswer }))}
+      value={String(optionId)}
+      checked={isChecked()}
+    />
+  );
+
+  const renderDropdown = () => <div className="option-dropdown">{optionId}</div>;
 
   const handleSelectOption = () => {
     switch (type) {
       case QUESTION_OPTION.ONE_SELECT:
-        return (
-          <Radio
-            className="option checked"
-            disabled={isDisabled()}
-            onClick={() => dispatch(questionActions.chooseRadioAnswer({ id: questionId, optionId, isAnswer }))}
-            value={String(optionId)}
-            checked={isChecked()}
-          />
-        );
+        return renderRadio();
       case QUESTION_OPTION.MULTIPLE_SELECT:
-        return (
-          <Checkbox
-            className="option checked"
-            disabled={isDisabled()}
-            onClick={() => dispatch(questionActions.chooseCheckAnswer({ id: questionId, optionId, isAnswer }))}
-            value={String(optionId)}
-            checked={isChecked()}
-          />
-        );
+        return renderCheckBox();
       case QUESTION_OPTION.DROPDOWN:
-        return <div className="option-dropdown">{optionId}</div>;
+        return renderDropdown();
       default:
         return;
     }
   };
+
   return (
     <S.Wrapper $isLast={isLast}>
       {handleSelectOption()}

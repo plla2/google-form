@@ -25,10 +25,7 @@ const Dropdown = ({ questionId, menus, isAnswer }: DropdownPropsType) => {
     dispatch(questionActions.chooseRadioAnswer({ id: questionId, optionId: e.target.value, isAnswer }));
   };
 
-  const showValue = () => {
-    if (isPreview || isResult) return chooseAnswer;
-    else return questionType;
-  };
+  const showValue = () => (isPreview || isResult ? chooseAnswer : questionType);
 
   return (
     <S_Root
@@ -37,7 +34,7 @@ const Dropdown = ({ questionId, menus, isAnswer }: DropdownPropsType) => {
       onChange={isPreview ? handleAnswerChange : handleTypeChange}
     >
       {menus.map((menu) => (
-        <S_MenuItem key={menu.id} value={menu.id}>
+        <S_MenuItem key={menu.option} value={menu.id}>
           <span>
             {menu.icon && <img src={menu.icon} alt="옵션 아이콘" />}
             <p>{menu.option}</p>

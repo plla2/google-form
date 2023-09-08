@@ -17,14 +17,15 @@ const TextQuestion = ({ type, questionId }: TextQuestionPropsType) => {
     dispatch(questionActions.writeTextAnswer({ id: questionId, textContent: e.target.value }));
   };
 
+  const inputType = isPreview || isResult ? 'text' : 'text';
+  const placeholder = isPreview ? '내 답변' : type === 'short' ? '단답형 텍스트' : '장문형 텍스트';
+
   return (
     <S.Wrapper type={type}>
-      {!isPreview && !isResult ? (
-        <input type="text" disabled placeholder={type === 'short' ? '단답형 텍스트' : '장문형 텍스트'} />
-      ) : (
+      {(isPreview || isResult) && (
         <input
-          type="text"
-          placeholder={isPreview ? '내 답변' : ''}
+          type={inputType}
+          placeholder={placeholder}
           onChange={handleTextChange}
           value={question?.textAnswers}
           disabled={isResult ? true : false}
