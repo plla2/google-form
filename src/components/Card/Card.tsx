@@ -15,9 +15,9 @@ const Card = ({ children, isTitle, id }: props) => {
 
   return (
     <S.Wrapper className={selectedCard === id ? 'selected' : ''}>
-      <S.CardContainer className={selectedCard === id ? 'selected' : ''} onClick={() => handleCardFocus(id as string)}>
+      <S.CardContainer onClick={() => handleCardFocus(id)}>
         {isTitle ? <S.TitleWrapper /> : null}
-        <S.SelectedWrapper className={selectedCard === id ? 'selected' : ''} />
+        <S.SelectedWrapper />
         {children}
       </S.CardContainer>
     </S.Wrapper>
