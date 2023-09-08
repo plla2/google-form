@@ -7,10 +7,26 @@ import { formActions } from '../../redux/slice/formSlice';
 import { Link } from 'react-router-dom';
 import { questionActions } from '../../redux/slice/questionSlice';
 import shortid from 'shortid';
+import { QUESTION_OPTION } from '../../constant/Const';
 
 interface SidebarPropsType {
   info: InfoPropsType;
 }
+
+const newQuestion = (newId: string) => ({
+  id: newId,
+  type: QUESTION_OPTION.ONE_SELECT,
+  questionContent: '',
+  isEssential: false,
+  options: [
+    {
+      id: 1,
+      option: '옵션 1',
+    },
+  ],
+  textAnswers: '',
+  checkAnswers: [],
+});
 
 const Sidebar = ({ info }: SidebarPropsType) => {
   const dispatch = useAppDispatch();
@@ -20,8 +36,8 @@ const Sidebar = ({ info }: SidebarPropsType) => {
   };
 
   const handleAddNewQuestion = () => {
-    const newQuestionId = shortid();
-    dispatch(questionActions.addQuestion(newQuestionId));
+    const newId = shortid();
+    dispatch(questionActions.addQuestion(newQuestion(newId)));
   };
 
   return (

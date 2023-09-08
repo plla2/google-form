@@ -34,21 +34,6 @@ const initialState: intialStateType[] = [
   },
 ];
 
-const addNewQuestion = (newQuestionId: string) => ({
-  id: newQuestionId,
-  type: QUESTION_OPTION.ONE_SELECT,
-  questionContent: '',
-  isEssential: false,
-  options: [
-    {
-      id: 1,
-      option: '옵션 1',
-    },
-  ],
-  textAnswers: '',
-  checkAnswers: [],
-});
-
 const addNewOption = (newId: number) => ({
   id: newId,
   option: `옵션 ${newId}`,
@@ -75,8 +60,8 @@ const { actions: questionActions, reducer: questionReducer } = createSlice({
       question && (question.questionContent = questionContent);
     },
     addQuestion: (state, action) => {
-      const newQuestionId = action.payload;
-      state.push(addNewQuestion(newQuestionId));
+      const newQuestion = action.payload;
+      state.push(newQuestion);
     },
     deleteQuestion: (state, action) => {
       const id = action.payload;
