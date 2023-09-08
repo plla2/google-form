@@ -1,16 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import Card from '../Card/Card';
 import * as S from './TitleCardStyle';
-
-export interface InfoPropsType {
-  title: string;
-  desc: string;
-}
-
-interface TitleCardPropsType {
-  info: InfoPropsType;
-  handleChange?: (name: string, value: string) => void;
-}
+import { TitleCardPropsType } from './TitleCardType';
 
 const TitleCard = ({ info, handleChange }: TitleCardPropsType) => {
   const location = useLocation();

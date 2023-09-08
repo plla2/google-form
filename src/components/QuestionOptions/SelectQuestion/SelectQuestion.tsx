@@ -1,4 +1,4 @@
-import { SelectQuestionPropsType } from './Type';
+import { SelectQuestionPropsType } from './SelectQuestionType';
 import { Checkbox, Radio } from '@mui/material';
 import * as S from './SelectQuestionStyle';
 import { QUESTION_OPTION } from '../../../constant/Const';

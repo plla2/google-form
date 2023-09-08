@@ -12,16 +12,12 @@ import deleteIcon from '../../../assets/icons/trash.svg';
 import dragIcon from '../../../assets/icons/drag.svg';
 import { Switch } from '@mui/material';
 import shortid from 'shortid';
-import { DraggableProvided } from 'react-beautiful-dnd';
-
-interface QuestionCardPropsType {
-  questionId: string;
-  provided: DraggableProvided;
-}
+import { QuestionCardPropsType } from './QuestionWrapperType';
 
 const QuestionWrapper = ({ questionId, provided }: QuestionCardPropsType) => {
   const dispatch = useAppDispatch();
   const { questions } = useAppSelector((state) => state.form);
+
   const pickedQuestion = questions.find((item) => item.id === questionId);
   if (!pickedQuestion) return null;
   const { type: questionType, options, questionContent, isEssential } = pickedQuestion;

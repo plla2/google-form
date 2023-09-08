@@ -8,7 +8,7 @@ const Resultpage = () => {
   const { questions } = form;
   return (
     <S_Container>
-      <div className="page-title">응답 결과</div>
+      <div className="page-title">설문 응답 결과</div>
       <TitleCard info={form.form} />
       {questions.map((item) => (
         <PreviewWrapper key={item.id} questionId={item.id} />

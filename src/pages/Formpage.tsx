@@ -21,7 +21,7 @@ export const S_Container = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    width: 150px;
+    width: 300px;
     height: 60px;
     border-radius: 5px;
     color: ${({ theme }) => theme.color.grey_verylight};

@@ -4,13 +4,11 @@ import Dropdown from '../../Dropdown/Dropdown';
 import SelectQuestion from '../../QuestionOptions/SelectQuestion/SelectQuestion';
 import TextQuestion from '../../QuestionOptions/TextQuestion/TextQuestion';
 import * as S from './PreviewWrapperStyle';
-
-interface PreviewWrapperPropsType {
-  questionId: string;
-}
+import { PreviewWrapperPropsType } from './PreviewWrapperType';
 
 const PreviewWrapper = ({ questionId }: PreviewWrapperPropsType) => {
   const { questions } = useAppSelector((state) => state.form);
+
   const pickedQuestion = questions.find((item) => item.id === questionId);
   if (!pickedQuestion) return null;
   const { type: questionType, options, questionContent, isEssential } = pickedQuestion;

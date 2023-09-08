@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import * as S from './CardStyle';
-
-interface props {
-  children: React.ReactNode;
-  isTitle: boolean;
-  id?: string;
-}
+import { props } from './CardType';
 
 const Card = ({ children, isTitle, id }: props) => {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);

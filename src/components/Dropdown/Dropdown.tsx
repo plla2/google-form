@@ -4,18 +4,7 @@ import { questionActions } from '../../redux/slice';
 import { useAppSelector } from '../../redux/rtk-hooks/useAppSelector';
 import { SelectChangeEvent } from '@mui/material';
 import { useLocation } from 'react-router-dom';
-
-interface MenusPropsType {
-  id: number;
-  option: string;
-  icon?: string;
-}
-
-interface DropdownPropsType {
-  questionId: string;
-  menus: MenusPropsType[];
-  isAnswer?: boolean;
-}
+import { DropdownPropsType } from './DropdownType';
 
 const Dropdown = ({ questionId, menus, isAnswer }: DropdownPropsType) => {
   const dispatch = useAppDispatch();

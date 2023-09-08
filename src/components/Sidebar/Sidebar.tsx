@@ -1,17 +1,13 @@
 import previewIcon from '../../assets/icons/eye.svg';
 import AddIcon from '../../assets/icons/add.svg';
 import * as S from './SidebarStyle';
-import { InfoPropsType } from '../TitleCard/TitleCard';
 import { useAppDispatch } from '../../redux/rtk-hooks/useAppDispatch';
 import { formActions } from '../../redux/slice/formSlice';
 import { Link } from 'react-router-dom';
 import { questionActions } from '../../redux/slice/questionSlice';
 import shortid from 'shortid';
 import { QUESTION_OPTION } from '../../constant/Const';
-
-interface SidebarPropsType {
-  info: InfoPropsType;
-}
+import { SidebarPropsType } from './SidebarType';
 
 const newQuestion = (newId: string) => ({
   id: newId,

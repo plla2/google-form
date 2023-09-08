@@ -1,9 +1,9 @@
-import { TextQuestionPropsType } from './Type';
+import { TextQuestionPropsType } from './TextQuestionType';
 import * as S from './TextQuestionStyle';
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch } from '../../../redux/rtk-hooks/useAppDispatch';
 import { useAppSelector } from '../../../redux/rtk-hooks/useAppSelector';
-import { questionActions } from '../../../redux/slice';
+import { questionActions } from '../../../redux/slice/';
 
 const TextQuestion = ({ type, questionId }: TextQuestionPropsType) => {
   const location = useLocation();
