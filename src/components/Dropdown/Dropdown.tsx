@@ -50,7 +50,7 @@ const Dropdown = ({ questionId, menus, isAnswer }: DropdownPropsType) => {
       {menus.map((menu) => (
         <S_MenuItem key={menu.id} value={menu.id}>
           <span>
-            <img src={menu.icon} alt="옵션 아이콘" />
+            {menu.icon && <img src={menu.icon} alt="옵션 아이콘" />}
             <p>{menu.option}</p>
           </span>
         </S_MenuItem>
