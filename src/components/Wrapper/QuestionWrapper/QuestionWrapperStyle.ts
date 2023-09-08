@@ -41,11 +41,18 @@ export const Container = styled.div`
     align-items: center;
     justify-content: end;
     margin-top: 10px;
-    img {
+    .icon {
       cursor: pointer;
+      padding: 10px;
+      margin-right: 15px;
+      border-radius: 5px;
+      &:hover {
+        background-color: ${({ theme }) => theme.color.grey_hover};
+      }
+    }
+    img {
       width: 30px;
       height: 30px;
-      margin-right: 25px;
     }
     .switch-name {
       display: flex;
@@ -59,10 +66,18 @@ export const Container = styled.div`
   .dragHandler {
     position: relative;
     left: 48%;
-    width: 25px;
+    width: 35px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    &:hover {
+      background-color: ${({ theme }) => theme.color.grey_hover};
+    }
     img {
       width: 25px;
-      margin-bottom: 10px;
       cursor: pointer;
     }
   }

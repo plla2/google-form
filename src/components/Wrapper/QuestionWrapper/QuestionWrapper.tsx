@@ -106,8 +106,12 @@ const QuestionWrapper = ({ questionId, provided }: QuestionCardPropsType) => {
         {selectOption()}
         <hr />
         <div className="settings">
-          <img src={copyIcon} alt="복사 아이콘" onClick={handleCopyQuestion} />
-          <img src={deleteIcon} alt="삭제 아이콘" onClick={handleDeleteQuestion} />
+          <div className="icon" onClick={handleCopyQuestion}>
+            <img src={copyIcon} alt="복사 아이콘" />
+          </div>
+          <div className="icon" onClick={handleDeleteQuestion}>
+            <img src={deleteIcon} alt="삭제 아이콘" />
+          </div>
           <div className="switch-name">필수</div>
           <Switch className="essentialSwitch" checked={isEssential} onChange={handleSwitch} />
         </div>

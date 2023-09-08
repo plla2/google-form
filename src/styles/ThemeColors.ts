@@ -13,6 +13,7 @@ export const ThemeColors: DefaultTheme = {
     grey_medium: '#a9a9a9',
     grey_light: '#bdbebd',
     grey_verylight: '#d3d3d3',
+    grey_hover: '#e9e9e9',
   },
 };
 

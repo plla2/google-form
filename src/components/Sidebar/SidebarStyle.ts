@@ -14,10 +14,16 @@ export const Wrapper = styled.div`
     align-items: center;
     background-color: ${({ theme }) => theme.color.white};
     border-radius: 12px;
+
     img {
       cursor: pointer;
-      width: 35px;
-      height: 35px;
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: ${({ theme }) => theme.color.grey_hover};
+      }
     }
   }
 `;
