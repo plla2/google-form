@@ -16,10 +16,11 @@ const TitleCard = ({ info, handleChange }: TitleCardPropsType) => {
   const location = useLocation();
   const { pathname } = location;
   const isPreview = pathname === '/preview';
+  const isResult = pathname === '/result';
 
   return (
     <>
-      {!isPreview ? (
+      {!isPreview && !isResult ? (
         <S.FormWrapper>
           <Card isTitle>
             <div className="inputs">
@@ -48,7 +49,7 @@ const TitleCard = ({ info, handleChange }: TitleCardPropsType) => {
             <div className="preview__title">{info.title}</div>
             <div className="preview__desc">{info.desc}</div>
             <hr />
-            <div className="preview__essential">* 필수항목</div>
+            <div className="preview__essential">* 표시는 필수 질문임</div>
           </div>
         </S.PreviewWrapper>
       )}

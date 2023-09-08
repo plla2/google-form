@@ -12,6 +12,18 @@ export const S_Container = styled.div`
   align-items: center;
   margin-top: 3rem;
   position: relative;
+  margin-bottom: 60px;
+  .page-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    width: 150px;
+    height: 60px;
+    border-radius: 5px;
+    color: ${({ theme }) => theme.color.grey_verylight};
+    background-color: ${({ theme }) => theme.color.purple_dark};
+  }
 `;
 
 const Formpage = () => {

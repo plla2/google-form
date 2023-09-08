@@ -80,7 +80,7 @@ const { actions: questionActions, reducer: questionReducer } = createSlice({
     },
     deleteQuestion: (state, action) => {
       const id = action.payload;
-      state.filter((item) => item.id !== id);
+      return state.filter((item) => item.id !== id);
     },
     addOption: (state, action) => {
       const { id, optionId } = action.payload;

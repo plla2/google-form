@@ -26,18 +26,25 @@ const Dropdown = ({ questionId, menus, isAnswer }: DropdownPropsType) => {
   const chooseAnswer = checkAnswers.length > 0 ? checkAnswers[0] : '';
   const location = useLocation();
   const isPreview = location.pathname === '/preview';
+  const isResult = location.pathname === '/result';
 
   const handleTypeChange = (e: SelectChangeEvent<unknown>) => {
     dispatch(questionActions.changeType({ id: questionId, type: e.target.value }));
   };
 
   const handleAnswerChange = (e: SelectChangeEvent<unknown>) => {
-    dispatch(questionActions.chooseRadioAnswer({ id: questionId, optionId: e.target.value, isAnswer: isAnswer }));
+    dispatch(questionActions.chooseRadioAnswer({ id: questionId, optionId: e.target.value, isAnswer }));
+  };
+
+  const showValue = () => {
+    if (isPreview || isResult) return chooseAnswer;
+    else return questionType;
   };
 
   return (
     <S_Root
-      value={isPreview ? chooseAnswer : questionType}
+      value={showValue()}
+      disabled={isResult ? true : false}
       onChange={isPreview ? handleAnswerChange : handleTypeChange}
     >
       {menus.map((menu) => (

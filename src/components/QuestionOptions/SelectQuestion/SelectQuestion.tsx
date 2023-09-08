@@ -10,6 +10,7 @@ const SelectQuestion = ({ type, optionId, questionId, optionContent, isLast, isA
   const dispatch = useAppDispatch();
   const location = useLocation();
   const isPreview = location.pathname === '/preview';
+  const isResult = location.pathname === '/result';
 
   const handleAddOption = () => {
     isLast && dispatch(questionActions.addOption({ id: questionId, optionId }));
@@ -19,26 +20,36 @@ const SelectQuestion = ({ type, optionId, questionId, optionContent, isLast, isA
     dispatch(questionActions.setOptionContent({ id: questionId, optionId, optionContent: e.target.value }));
   };
 
+  const isChecked = () => {
+    if (isPreview || isResult) return isAnswer;
+    else return false;
+  };
+
+  const isDisabled = () => {
+    if (isResult) return true;
+    else return false;
+  };
+
   const handleSelectOption = () => {
     switch (type) {
       case QUESTION_OPTION.ONE_SELECT:
         return (
           <Radio
             className="option checked"
-            disabled={isPreview ? false : true}
+            disabled={isDisabled()}
             onClick={() => dispatch(questionActions.chooseRadioAnswer({ id: questionId, optionId, isAnswer }))}
             value={String(optionId)}
-            checked={isPreview ? isAnswer : false}
+            checked={isChecked()}
           />
         );
       case QUESTION_OPTION.MULTIPLE_SELECT:
         return (
           <Checkbox
             className="option checked"
-            disabled={isPreview ? false : true}
+            disabled={isDisabled()}
             onClick={() => dispatch(questionActions.chooseCheckAnswer({ id: questionId, optionId, isAnswer }))}
             value={String(optionId)}
-            checked={isPreview ? isAnswer : false}
+            checked={isChecked()}
           />
         );
       case QUESTION_OPTION.DROPDOWN:
@@ -50,7 +61,7 @@ const SelectQuestion = ({ type, optionId, questionId, optionContent, isLast, isA
   return (
     <S.Wrapper isLast={isLast}>
       {handleSelectOption()}
-      {isPreview ? (
+      {isPreview || isResult ? (
         <div className="preview-option">{optionContent}</div>
       ) : (
         <input type="text" value={optionContent} onChange={handleContentChange} onClick={handleAddOption} />
