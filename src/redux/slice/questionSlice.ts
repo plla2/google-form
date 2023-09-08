@@ -39,24 +39,28 @@ const addNewOption = (newId: number) => ({
   option: `옵션 ${newId}`,
 });
 
+const findQuestionById = (state: intialStateType[], id: string) => state.find((question) => question.id === id);
+const findIndexQuestionById = (state: intialStateType[], id: string) =>
+  state.findIndex((question) => question.id === String(id));
+
 const { actions: questionActions, reducer: questionReducer } = createSlice({
   name: 'question',
   initialState,
   reducers: {
     changeType: (state, action) => {
       const { id, type } = action.payload;
-      const question = state.find((question) => question.id === id);
+      const question = findQuestionById(state, id);
       question && (question.type = type);
       question && (question.checkAnswers = []);
     },
     setEssential: (state, action) => {
       const id = action.payload;
-      const question = state.find((question) => question.id === id);
+      const question = findQuestionById(state, id);
       question && (question.isEssential = !question.isEssential);
     },
     setQuestionContent: (state, action) => {
       const { id, questionContent } = action.payload;
-      const question = state.find((question) => question.id === id);
+      const question = findQuestionById(state, id);
       question && (question.questionContent = questionContent);
     },
     addQuestion: (state, action) => {
@@ -69,18 +73,18 @@ const { actions: questionActions, reducer: questionReducer } = createSlice({
     },
     addOption: (state, action) => {
       const { id, optionId } = action.payload;
-      const questionId = state.findIndex((question) => question.id === String(id));
+      const questionId = findIndexQuestionById(state, id);
       state[questionId].options.push(addNewOption(optionId));
     },
     setOptionContent: (state, action) => {
       const { id, optionId, optionContent } = action.payload;
-      const questionId = state.findIndex((question) => question.id === String(id));
+      const questionId = findIndexQuestionById(state, id);
       const optionIdx = state[questionId].options.findIndex((option) => option.id === Number(optionId));
       state[questionId].options[optionIdx].option = optionContent;
     },
     chooseRadioAnswer: (state, action) => {
       const { id, optionId, isAnswer } = action.payload;
-      const question = state.find((question) => question.id === id);
+      const question = findQuestionById(state, id);
       if (!question) return;
       question.checkAnswers.length > 0 && question.checkAnswers.splice(-1, 1);
       if (!isAnswer) {
@@ -89,7 +93,7 @@ const { actions: questionActions, reducer: questionReducer } = createSlice({
     },
     chooseCheckAnswer: (state, action) => {
       const { id, optionId, isAnswer } = action.payload;
-      const question = state.find((question) => question.id === id);
+      const question = findQuestionById(state, id);
       if (!question) return;
       const answerIdx = question.checkAnswers.findIndex((answer) => answer === optionId);
       if (!isAnswer) {
@@ -101,7 +105,7 @@ const { actions: questionActions, reducer: questionReducer } = createSlice({
     },
     writeTextAnswer: (state, action) => {
       const { id, textContent } = action.payload;
-      const questionId = state.findIndex((question) => question.id === String(id));
+      const questionId = findIndexQuestionById(state, id);
       state[questionId].textAnswers = textContent;
     },
     resetAnswers: (state) => {
