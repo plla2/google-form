@@ -27,7 +27,7 @@ const Sidebar = ({ info }: SidebarPropsType) => {
   return (
     <S.Wrapper>
       <div className="images">
-        <Link to="/preview" target="_blank">
+        <Link to="/preview">
           <img src={previewIcon} alt="미리보기 아이콘" onClick={handleOpenPreview} />
         </Link>
         <img src={AddIcon} alt="질문추가 아이콘" onClick={handleAddNewQuestion} />
