@@ -7,7 +7,7 @@ interface initialStateType {
 }
 
 const initialState: initialStateType = {
-  title: '제목 없는 설문지',
+  title: '구글 설문폼 - 클라썸 과제 1',
   desc: '',
 };
 
