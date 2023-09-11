@@ -3,27 +3,38 @@
 </br>
 
 ## 🧲 Stacks
-<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"> <img src="https://img.shields.io/badge/Typescript-3178C6?style=for-the-badge&logo=Typescript&logoColor=white"> <img src="https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=white"> <img src="https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"> <img src="https://img.shields.io/badge/ReduxToolkit-764ABC?style=for-the-badge&logo=redux&logoColor=white">
-<img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white">
+
+<img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"> <img src="https://img.shields.io/badge/Typescript-3178C6?style=for-the-badge&logo=Typescript&logoColor=white"> <img src="https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=white"> <img src="https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"> <img src="https://img.shields.io/badge/ReduxToolkit-764ABC?style=for-the-badge&logo=redux&logoColor=white">
+<img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white"> <img src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white"> <img src="https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white">
 
 </br>
 
 ## 💻 Repo소개
-구글 설문조사 Clone 만들기
+
+<b>구글 설문조사 Clone 만들기</b>
 
 </br>
 
-## ⚙️ 설치 및 실행 방법
+## ⚙️ 설치 및 실행 방법 / 버전
+
 ```
 // 패키지 설치
 npm install
 
 // 실행
 npm run dev
-
 ```
 
+```
+// 버전
+Node.js v18.14.2
+npm v9.6.6
+```
+
+</br>
+
 ## 🖋️ 주요 기능
+
 <ul>
   <li>설문지 제목 추가, 편집</li>
   <li>설문지 설명 추가, 편집</li>
@@ -43,4 +54,3 @@ npm run dev
   <li>양식 지우기 기능</li>
   <li>질문 순서 변경</li>
 </ul>
-
